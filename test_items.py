@@ -9,4 +9,3 @@ def test_guest_should_see_button_to_add(browser):
     button = browser.find_elements_by_class_name("btn.btn-lg.btn-primary.btn-add-to-basket")
     assert button is not None, "No create class button"
     
-    
