@@ -12,14 +12,14 @@ supported_browsers = {
 def pytest_addoption(parser):
     parser.addoption('--browser_name', action='store', default='chrome',
                      help="Choose browser: chrome or firefox")
-    parser.addoption('--language_name', action='store', default='en-gb',
+    parser.addoption('--language', action='store', default='en-gb',
                      help="Interface language: Russian or English")
 
 
 @pytest.fixture(scope="function")
 def browser(request):
     browser_name = request.config.getoption("browser_name")
-    language_name = request.config.getoption("language_name")
+    language_name = request.config.getoption("language")
 
     if browser_name in supported_browsers:
         browser = supported_browsers.get(browser_name)()
